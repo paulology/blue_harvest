@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>First Wireframe</title>
+<meta name="keywords" >
+</head>
+<style type="text/css">
+#name {
+		background-color:  #808080;
+		width: auto;
+		height: 200px;
+		
+}
+.banner { 
+	float:center;
+}
+</style>
+<body>
+	<div id="name">
+		<div class="banner">Information System Department<br>Forest Park</div>
+	</div>
+</body>
+</html>
+
+
