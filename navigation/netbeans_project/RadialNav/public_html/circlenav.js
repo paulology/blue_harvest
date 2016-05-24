@@ -11,8 +11,9 @@ $(document).ready(function() {
         var items = document.querySelectorAll('.circle a');
         var len = items.length;
         //set nav button positions in a circle
-        for(var i = 0; i < len; i++) {
+        for(var i=0; i<len; i++) {
             //when adding a ninth icon, this doesn't fold up properly
+                                  
             items[i].style.left = (85 - 35*Math.cos(-0.5 * Math.PI - 2*(1/len)*(i-1)*Math.PI)).toFixed(4) + "%";
             items[i].style.top = (70 + 35*Math.sin(-0.5 * Math.PI - 2*(1/len)*(i-1)*Math.PI)).toFixed(4) + "%";
         }
@@ -28,8 +29,48 @@ $(document).ready(function() {
             evt.preventDefault();
             document.querySelector('.circle').classList.toggle('open');
         };
-        //ONCE THE FOLLOWING IS SMOOTH, COPY AND PASTE FOR EACH NAV BUTTON
+        //go to faculty page
         document.querySelector('.faculty').onclick = function(evt) {
+            evt.preventDefault();
+            unravel('faculty.html');
+        };
+        //go to facilities page
+        document.querySelector('.facilities').onclick = function(evt) {
+            evt.preventDefault();
+            unravel('facilities.html');
+            setTimeout(function() {window.location = 'facilities.html';}, 2000);
+        };
+        //go to cisco page
+        document.querySelector('.cisco').onclick = function(evt) {
+            evt.preventDefault();
+            unravel('.function');
+            setTimeout(function() {window.location = 'cisco.html';}, 2000);
+        };
+        //go to academies page
+        document.querySelector('.academies').onclick = function(evt) {
+            evt.preventDefault();
+            unravel();
+            setTimeout(function() {window.location = 'academies.html';}, 2000);
+        };
+        //go to initiatives page
+        document.querySelector('.initiatives').onclick = function(evt) {
+            evt.preventDefault();
+            unravel();
+            setTimeout(function() {window.location = 'initiatives.html';}, 2000);
+        };
+        //go to clubs page
+        document.querySelector('.clubs').onclick = function(evt) {
+            evt.preventDefault();
+            unravel();
+            setTimeout(function() {window.location = 'clubs.html';}, 2000);
+        };
+        //go to home page
+        document.querySelector('.home').onclick = function(evt) {
+            evt.preventDefault();
+            unravel();
+            setTimeout(function() {window.location = 'home.html';}, 2000);
+        };
+        function unravel(URL){
             $('.menu-button').animate({opacity: '0'}, 100);
             var lInt = (50 - 35*Math.cos(-0.5 * Math.PI - 2*(1/len)*(0-2)*Math.PI)).toFixed(4);
             //following ends with left border cut off:
@@ -47,7 +88,7 @@ $(document).ready(function() {
                 
             for(var i=len-1; i>=0; i--) {
                 var cycle = 1;
-                evt.preventDefault();                                     //the 12.5 below↓ was originally 29.7879
+                                                                        //the 12.5 below↓ was originally 29.7879
                 var tInt = ((50 + 35*Math.sin(-0.5 * Math.PI - 2*(1/len)*(0-2)*Math.PI))+(12.5*times)).toFixed(4);
                 var tString = tInt-15 + "%";
                 while(cycle<=10) {
@@ -68,6 +109,7 @@ $(document).ready(function() {
                 
             }
             $('.menu-button').hide();
-        };
+            setTimeout(function() {window.location = URL;}, 2000);
+        }
     };
 });
